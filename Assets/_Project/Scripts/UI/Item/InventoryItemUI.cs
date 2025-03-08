@@ -55,7 +55,7 @@ public class InventoryItemUI : MonoBehaviour
         icon.rectTransform.position = _camera.WorldToScreenPoint(position);
         icon.transform.DOScale(icon.transform.localScale * 2, 0.25f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.Linear);
         await UniTask.Delay(250);
-        await icon.transform.DOMove(_iconImage.transform.position, 2.5f).AsyncWaitForCompletion().AsUniTask();
+        await icon.transform.DOMove(_iconImage.transform.position, 1.5f).AsyncWaitForCompletion().AsUniTask();
         Destroy(icon.gameObject);
     }
 }
