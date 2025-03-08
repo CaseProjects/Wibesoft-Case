@@ -8,19 +8,16 @@ namespace Installers
         public override void InstallBindings()
         {
             SignalBusInstaller.Install(Container);
-            InstallPlayerSignals();
-            InstallUtiliesSignal();
+            InstallUISignals();
         }
 
-
-        private void InstallPlayerSignals()
+        private void InstallUISignals()
         {
-            Container.DeclareSignalWithInterfaces<SignalChangeState>().OptionalSubscriber();
-        }
-
-        private void InstallUtiliesSignal()
-        {
-            Container.DeclareSignal<SignalSaveLevel>().OptionalSubscriber();
+            Container.DeclareSignal<SetActiveTimerUISignal>().OptionalSubscriber();
+            Container.DeclareSignal<SetActiveProductPopupSignal>().OptionalSubscriber();
+            Container.DeclareSignal<SetActiveBuildingItemsPopupSignal>().OptionalSubscriber();
+            Container.DeclareSignal<InstantiateConstructionSignal>().OptionalSubscriber();
+            Container.DeclareSignal<CollectedProductSignal>().OptionalSubscriber();
         }
     }
 }

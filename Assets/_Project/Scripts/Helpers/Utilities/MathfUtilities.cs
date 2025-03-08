@@ -1,32 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Helpers.Extensions
 {
     public static class MathfUtilities
     {
-        public static float ClampAngle(float current, float min, float max)
+        public static Vector2 RoundVector(this Vector2 vector2)
         {
-            var dtAngle = Mathf.Abs(((min - max) + 180) % 360 - 180);
-            var hdtAngle = dtAngle * 0.5f;
-            var midAngle = min + hdtAngle;
-
-            var offset = Mathf.Abs(Mathf.DeltaAngle(current, midAngle)) - hdtAngle;
-            if (offset > 0)
-                current = Mathf.MoveTowardsAngle(current, midAngle, offset);
-            return current;
-        }
-
-        public static float FastSqrt(float x)
-        {
-            unsafe
-            {
-                var i = *(uint*)&x;
-                // adjust bias
-                i += 127 << 23;
-                // approximation of square root
-                i >>= 1;
-                return *(float*)&i;
-            }
+            return new Vector2((float)Math.Round(vector2.x, 2), (float)Math.Round(vector2.y, 2));
         }
     }
 }

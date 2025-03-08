@@ -12,17 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5963077978d13442b97cd6b878c14c1, type: 3}
   m_Name: GameSettingsInstaller
   m_EditorClassIdentifier: 
-  Player:
-    MoveHandlerSettings:
-      SwerveSpeed: 0.25
-      MaxSwerveAmount: 0.75
-      HorizontalSpeedFactor: 0
-      ForwardSpeed: 0
-  Misc:
-    CameraSettings:
-      PositionOffset: {x: 0, y: 0, z: 0}
-      RotationOffset: {x: 0, y: 0, z: 0}
-      Damp: 0
-    ParticleSettings:
-      ParticleSystems:
-      - {fileID: 1578469459646218, guid: 0d57e66d7df915b4aabb02005dd9f8b1, type: 3}
+  _uiSettings:
+    ProductPopup:
+      _productItemPrefab: {fileID: 6088778686877547669, guid: 2084d530d31aa8e4f99e9b1270589587, type: 3}
+      Products:
+      - {fileID: 11400000, guid: 62e99effa9f7a6c4e933488f202ad50d, type: 2}
+      - {fileID: 11400000, guid: ec2105ffab1832c4ba855ac3a5be440e, type: 2}
+    BuildingItemsPopup:
+      BuildingItemUIPrefab: {fileID: 2241186261442743884, guid: ed847a8132574464d8ce6c40ccac823a, type: 3}
+      Buildings:
+      - {fileID: 11400000, guid: aefc67c2c732c1c449e5cf758205c55a, type: 2}
+      - {fileID: 11400000, guid: 10fc78254318b2b4598ccc6bb116b589, type: 2}
+      - {fileID: 11400000, guid: d3dac3c7872e45a4591b5c6569bead72, type: 2}
+    InventoryItemPanel:
+      InventoryItemUIPrefab: {fileID: 7328169896736052136, guid: 1cd755c7fbab7e9438d107b4204c6341, type: 3}
+      Collectibles:
+      - {fileID: 11400000, guid: e01bb19a29d2bef489fa90943bd49d7e, type: 2}
+      - {fileID: 11400000, guid: 8d4a8f64a36a24d4eb679a73487f8418, type: 2}

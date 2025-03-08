@@ -1,48 +1,59 @@
-﻿using MoreMountains.NiceVibrations;
-using Utilities;
+﻿using _Project.Scripts;
+using _Project.Scripts.Model;
+using UnityEngine;
 
 namespace Events
 {
-    #region StateChange
-
-    public readonly struct
-        SignalChangeState : ISignalChangeSplineSpeed, ISignalChangeAnimation
+    public struct InstantiateConstructionSignal
     {
-        public float SplineSpeed { get; }
-        public string Animation { get; }
+        public BuildingData BuildingData { get; }
 
-
-        public SignalChangeState(float splineSpeed, string animation)
+        public InstantiateConstructionSignal(BuildingData buildingData)
         {
-            (SplineSpeed, Animation) = (splineSpeed, animation);
+            BuildingData = buildingData;
         }
     }
 
-
-    public interface ISignalChangeAnimation
+    public struct SetActiveTimerUISignal
     {
-        string Animation { get; }
+        public TimerObject TimerObjectObject { get; }
+
+        public SetActiveTimerUISignal(TimerObject timerObjectObject)
+        {
+            TimerObjectObject = timerObjectObject;
+        }
     }
 
-    public interface ISignalChangeSplineSpeed
+    public struct SetActiveProductPopupSignal
     {
-        float SplineSpeed { get; }
+        public bool IsActive { get; }
+        public Vector3? Position { get; }
+
+        public SetActiveProductPopupSignal(bool isActive, Vector3? position = null)
+        {
+            IsActive = isActive;
+            Position = position;
+        }
     }
 
-    #endregion
-
-    public readonly struct SignalSaveLevel
+    public struct SetActiveBuildingItemsPopupSignal
     {
-    }
+        public bool? IsActive { get; }
 
-    public interface ISignalPlayHaptic
+        public SetActiveBuildingItemsPopupSignal(bool? isActive = null)
+        {
+            IsActive = isActive;
+        }
+    }
+    public struct CollectedProductSignal
     {
-        public HapticTypes HapticType { get; }
-    }
+        public CollectibleData CollectibleData { get; }
+        public Vector3 Position { get; }
 
-    public interface ISignalPlaySound
-    {
-        public AudioAndHapticManager.AudioType AudioType { get; }
+        public CollectedProductSignal(CollectibleData collectibleData, Vector3 position)
+        {
+            CollectibleData = collectibleData;
+            Position = position;
+        }
     }
-
 }

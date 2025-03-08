@@ -1,4 +1,4 @@
-using MainHandlers;
+using UnityEngine;
 using Zenject;
 
 namespace Installers
@@ -7,21 +7,8 @@ namespace Installers
     {
         public override void InstallBindings()
         {
+            Application.targetFrameRate = 60;
             GameSignalsInstaller.Install(Container);
-            InstallMainBehaviors();
-            InstallPlayerSettings();
         }
-
-
-        private void InstallMainBehaviors()
-        {
-            Container.BindInterfacesAndSelfTo<GameStateManager>().AsSingle();
-            Container.Bind<GameObservables>().AsSingle();
-        }
-
-        private void InstallPlayerSettings()
-        {
-        }
-
     }
 }
