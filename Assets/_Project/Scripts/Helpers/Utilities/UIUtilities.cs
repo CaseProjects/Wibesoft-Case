@@ -20,17 +20,10 @@ namespace Helpers.Utilities
         public static bool IsFingerOverObject() => EventSystem.current.currentSelectedGameObject != null;
 
 
-        public static bool CheckCollisionOnPosition((Vector2 min, Vector2 max) handUvPos)
+        public static bool IsMouseClickInsideRect(RectTransform rectTransform)
         {
-            var mousePos = Input.mousePosition;
-            var mouseUvPos = new Vector2(mousePos.x / Screen.width, mousePos.y / Screen.height);
-            mouseUvPos = mouseUvPos.RoundVector();
-            handUvPos.min = handUvPos.min.RoundVector();
-            handUvPos.max = handUvPos.max.RoundVector();
-
-            return mouseUvPos.x >= handUvPos.min.x && mouseUvPos.x <= handUvPos.max.x &&
-                   mouseUvPos.y >= handUvPos.min.y &&
-                   mouseUvPos.y <= handUvPos.max.y;
+            Vector2 mousePos = Input.mousePosition;
+            return RectTransformUtility.RectangleContainsScreenPoint(rectTransform, mousePos);
         }
 
         public static (Vector2 min, Vector2 max) GetRectMinMaxViewport(RectTransform rectTransform)

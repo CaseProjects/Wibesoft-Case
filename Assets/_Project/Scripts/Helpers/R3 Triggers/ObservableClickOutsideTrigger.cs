@@ -11,12 +11,11 @@ public class ObservableClickOutsideTrigger : ObservableTriggerBase
     private void Update()
     {
         if (_rectTransform.gameObject.activeSelf && Input.GetMouseButtonDown(0) &&
-            !UIUtilities.CheckCollisionOnPosition(UIUtilities.GetRectMinMaxViewport(_rectTransform)))
+            !UIUtilities.IsMouseClickInsideRect(_rectTransform))
         {
             _onClickOutside?.OnNext(Unit.Default);
         }
     }
-
 
     public Observable<Unit> ClickOutsideAsObservable(RectTransform rectTransform)
     {
